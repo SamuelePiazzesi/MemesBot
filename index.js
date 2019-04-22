@@ -18,19 +18,14 @@ const helpMessage = 'Hey there! List of commands: /new - Take the newest meme /t
 
 
 bot.start((message) => {
-    console.log('started:', message.from.id)
-
-
+    console.log('started:', message.from.id);
     return message.reply(initialMessages[Math.floor(Math.random() * initialMessages.length)]);
 });
-
-
 bot.catch((err) => {
     console.log('Something is wrong!', err)
 });
 
 // COMMANDS
-
 bot.command('new', (message) => {
     axios
         .get(`https://www.reddit.com/r/memes/new/.json`)
@@ -108,7 +103,6 @@ bot.on('text', (message) => {
 });
 
 // INITIALIZATION
-
 
 bot.startPolling();
 
